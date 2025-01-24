@@ -1,0 +1,13 @@
+.dock-window{
+  width:100%;
+  height:100vh;
+  position: relative;
+  background-image:url("https://imgs.search.brave.com/QRaYdmirODmQhhPB9_NSZPaQSW3I6Y4Iae3Pzdisp0Y/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90b3MtcHJlbWl1/bS9ob2phLWJyaWxs/YW50ZS1tb25zdGVy/YS10dXJxaW9zZS1m/b25kby1hYnN0cmFj/dG8tcGFwZWwtcGlu/dGFkby1wbGFuby1o/b2phLXRyb3BpY2Fs/XzczMzI0LTY2Lmpw/Zz9zZW10PWFpc19o/eWJyaWQ");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.container-card{
+  margin: 30px;
+}
+

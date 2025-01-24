@@ -1,0 +1,6 @@
+.container{
+  width: 100%;
+  min-height: 75vh;
+  background-color: aliceblue;
+  border-radius: 4px;
+}
