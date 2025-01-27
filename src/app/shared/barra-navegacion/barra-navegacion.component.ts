@@ -21,17 +21,17 @@ export class BarraNavegacionComponent implements OnInit {
     this.navBar= [
       {
         label: 'Libros',
-        icon: "assets/iconos/libros.png",
+        icon: "libropic.png",
         command:()=>{ this.router.navigateByUrl('main/libros') }
       },
       {
         label: 'Autor',
-        icon: "assets/iconos/autor.png",
+        icon: "escritorpic.png",
         command:()=>{ this.router.navigateByUrl('main/autores') }
       },
       {
         label: 'Temas',
-        icon: "assets/iconos/temas.png",
+        icon: "temapic.png",
         command:()=>{ this.router.navigateByUrl('main/temas') }
       },
 
