@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { PagesModule } from './pages/pages.module';
 import { AppRoutingModule } from './app-routing.module';
 import { BarraCierreComponent } from './components/barra-cierre/barra-cierre.component';
-import{HttpClient,HttpClientModule} from '@angular/common/http';
+import{HttpClient,HttpClientModule, provideHttpClient} from '@angular/common/http';
 
 
 

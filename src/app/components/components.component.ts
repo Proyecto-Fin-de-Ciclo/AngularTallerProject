@@ -4,14 +4,7 @@ import { BarraCierreComponent } from './barra-cierre/barra-cierre.component';
 
 @NgModule({
   declarations: [],
-  exports: [
-    BarraCierreComponent
-  ],
-  imports: [
-    CommonModule,
-    BarraCierreComponent
-  ]
+  exports: [BarraCierreComponent],
+  imports: [CommonModule, BarraCierreComponent],
 })
-export class ComponentsComponent {
-
-}
+export class ComponentsComponent {}

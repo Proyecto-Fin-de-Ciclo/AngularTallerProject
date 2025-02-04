@@ -1,7 +1,7 @@
 .closeBar{
   width: 100%;
   height: 20px;
-  background-color: #f44336;
+  background-color: rgb(86, 36, 11);
   display: flex;
   justify-content: flex-end;
   border-top-left-radius: 4px;
