@@ -1,33 +1,212 @@
-.container{
+.container {
   width: 100%;
-  min-height: 75vh;
-  max-height: 75vh;
+  min-height: 65vh;
+  max-height: 65vh;
   border-radius: 4px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   overflow: auto;
-  background-color: aliceblue;
+  background-color: rgba(240, 248, 255, 0.636);
   border-end-end-radius: 4px;
   border-end-start-radius: 4px;
 }
+.tar{
+  width: 100%;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0);
+}
+.img-editar {
+  top: -30px; /* Ajusta según sea necesario */
+  right: 50px; /* Ajusta según sea necesario */
+  width: 20%; /* Ajusta según sea necesario */
+  z-index: 1; /* Asegura que la imagen de edición esté en frente */
+}
 
+.img-libro {
+  width: 100%;
+  height: 200px; /* Ajusta la altura según sea necesario */
+  object-fit: cover; /* Mantiene la proporción de la imagen */
+  border-radius: 8px;
+}
 
-.card_v{
+.card_v {
   width: 15%;
-  height: 100px;
+  height: 300px; /* Ajusta el ancho según sea necesario */
   padding: 1rem;
   cursor: pointer;
-  transition: 0.4s;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+}
+.boton-editar {
+  background-color: transparent; /* Fondo transparente */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Puntero de cursor para indicar clicable */
+  padding: 0; /* Sin relleno */
 }
 
-.position__img{
-  margin-top: 40px;
-  margin-left: 40px;
+.boton-editar img {
+  width: 34px; /* Ancho de la imagen */
+  height: 34px;/* Alto de la imagen */
+  margin-top: 10px;
+  margin-right: 15px;
+  transition: transform 0.2s; /* Transición para efectos de hover */
 }
 
-.libro__img{
-  width: 20%;
-  height: 50%;
+.boton-editar img:hover {
+  transform: scale(1.1); /* Aumentar tamaño en hover */
+}
+.boton-eliminar {
+  background-color: transparent; /* Fondo transparente */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Puntero de cursor para indicar clicable */
+  padding: 0; /* Sin relleno */
+}
+
+.boton-eliminar img {
+  width: 34px; /* Ancho de la imagen */
+  height: 34px; /* Alto de la imagen */
+  transition: transform 0.2s; /* Transición para efectos de hover */
+}
+
+.boton-eliminar img:hover {
+  transform: scale(1.1); /* Aumentar tamaño en hover */
+}
+
+.card_v:hover {
+  transform: scale(1.04); /* Añade un efecto de zoom */
+  z-index: 1; /* Asegura que la tarjeta ampliada se muestre por encima de las demás */
+}
+
+
+p-dialog .ui-dialog {
+  border-radius: 8px;
+}
+
+p-dialog .ui-dialog-content {
+  display: flex;
+  align-items: flex-start;
+}
+
+p-dialog img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+p-dialog h2 {
+  margin-top: 0;
+}
+
+p-dialog ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+p-dialog ul li {
+  margin-bottom: 10px;
+}
+
+p-dialog ul li strong {
+  color: #007bff; /* Cambia el color según tu tema */
+}
+
+form {
+  width: 70%;
+  height: auto;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+label {
+  flex: 1;
+  font-weight: bold;
+  color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+p-dropdown {
+  flex: 2;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.boton-add {
+  background-color: #ffffff97;
+  width: 5%;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
+  float: right;
+}
+
+button[type="submit"] {
+  width: 50%;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-items: center;
+  z-index: 1;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos específicos para el diálogo de eliminación */
+.dialogo-eliminacion {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+}
+
+.dialogo-eliminacion p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.dialogo-botones {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dialogo-botones button {
+  background: #ff5252;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.dialogo-botones button:nth-child(2) {
+  background: #ccc;
+  color: #333;
+}
+
+.dialogo-botones button:hover {
+  filter: brightness(90%);
 }

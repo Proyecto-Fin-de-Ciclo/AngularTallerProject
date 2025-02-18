@@ -1,5 +1,5 @@
 import { Autor } from "./autor";
-import { Temas } from "./tema";
+import { Tema } from "./tema";
 import { Edicion } from "./edicion";
 import { Formato } from "./formato";
 
@@ -9,7 +9,7 @@ export class Libro {
     ISBN: string;
     imgName?: string;
     autor: Autor;
-    tema: Temas;
+    tema: Tema;
     precio: number;
     edicion: Edicion;
     formato: Formato;
@@ -20,7 +20,7 @@ export class Libro {
         nombre: string,
         ISBN: string,
         autor: Autor,
-        tema: Temas,
+        tema: Tema,
         precio: number,
         edicion: Edicion,
         formato: Formato,

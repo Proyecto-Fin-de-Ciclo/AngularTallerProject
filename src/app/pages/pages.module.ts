@@ -8,6 +8,10 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from "../shared/shared.module";
 import { ComponentsComponent } from '../components/components.component';
 import{CardModule} from 'primeng/card';
+import { DialogModule } from 'primeng/dialog';
+import { DataViewModule } from 'primeng/dataview';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 @NgModule({
@@ -15,7 +19,7 @@ import{CardModule} from 'primeng/card';
     MainPageComponent,
     LibrosComponent,
     TemaComponent,
-    AutorComponent
+    AutorComponent,
   ],
   exports: [],
   imports: [
@@ -23,7 +27,12 @@ import{CardModule} from 'primeng/card';
     RouterModule,
     SharedModule,
     ComponentsComponent,
-    CardModule
+    CardModule,
+    DialogModule,
+    DropdownModule,
+    DataViewModule,
+    ReactiveFormsModule
+
 ]
 })
 export class PagesModule { }

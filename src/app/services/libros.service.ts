@@ -14,4 +14,13 @@ export class LibrosService {
   public getLibros(){
     return this.httpClient.get<Libro[]>(`${this.baseURL}/api/libros`, {headers: this.options});
   }
+  public putLibro(libro:Libro){
+    return this.httpClient.put(`${this.baseURL}/api/libros`, libro, {headers: this.options});
+  }
+  public postLibro(libro:Libro){
+    return this.httpClient.post(`${this.baseURL}/api/libros`, libro, {headers: this.options});
+  }
+  public deleteLibro(id:number){
+    return this.httpClient.delete(`${this.baseURL}/api/libros/${id}`, {headers: this.options});
+  }
 }

@@ -1,25 +1,183 @@
-<<div class="animate__animated animate__pulse animate__slow">
-<app-barra-cierre></app-barra-cierre>
-<div class="container">
-  <h1>Libros</h1>
-  <div *ngFor="let libro of libros" class="card_v">
-    <p-card>
-      <ng-template pTemplate="header">
-        <img src= {{libro.imgName}}/>
-        <span style="font-weight: bold">
-          {{libro.nombre}}
-        </span>
-      </ng-template>
-      <p>Autor: {{libro.autor.nombre}}</p>
-      <p>Edicion: {{libro.edicion.nombre}}</p>
-      <p>Formato: {{libro.formato.nombre|uppercase}}</p>
-      <p>Precio: {{libro.precio|currency:"€"}}</p>
-      <p>Isbn: {{libro.ISBN}}</p>
-      <ng-template pTemplate="footer">
-        Cantidad: {{libro.cantidad}}
-      </ng-template>
-    </p-card>
-    {{libro.nombre}}
+<div class="animate__animated animate__pulse animate__slow">
+  <app-barra-cierre></app-barra-cierre>
+  <div class="container">
+    <div *ngFor="let libro of libros" class="card_v">
+      <div (click)="showLibroDetails(libro)">
+        <p-card class="target">
+        <ng-template pTemplate="header">
+          <img *ngIf="!libro.imgName" [src]="'/assets/' + libro.imgName" alt="Portada del Libro" class="img-libro"/>
+          <img *ngIf="libro.imgName" [src]="libro.imgName.startsWith('http') ? libro.imgName : '/assets/' + libro.imgName" alt="Portada del Libro" class="img-libro" />
+          <div class="tar">
+            <div>
+              <span style="font-weight: bold; font-size: 0.9em">{{ libro.nombre }}</span>
+            </div>
+            <div>
+              <p>Precio: {{ libro.precio | currency:'€' }}</p>
+            </div>
+          </div>
+        </ng-template>
+        </p-card>
+      </div>
+      <div class = "botones-libro">
+        <button class="boton-editar" (click)="mostrarCamposLibro(libro)">
+          <img [src]="'/assets/editar.png'" alt="Icono de edición" class="boton-editar"/>
+        </button>
+        <button class="boton-eliminar" (click)="deleteConfirm(libro)">
+          <img [src]="'/assets/delete.png'" alt="Icono de eliminación" class="boton-eliminar"/>
+        </button>
+    </div>
   </div>
   </div>
+
+    <p-dialog [(visible)]="displayModify" [modal]="true" [closable]="true" [style]="{width: '50%', height: '100%'}" (onHide)="closeDialog()">
+      <div *ngIf="selectedLibro" class="libro-form">
+        <form [formGroup]="libroForm" (ngSubmit)="modificarLibro()">
+          <div>
+            <label for="nombre">Nombre:</label>
+            <input id="nombre" formControlName="nombre" />
+          </div>
+
+          <div>
+            <label for="autor">autor:</label>
+            <p-dropdown [options]="autores"
+                              formControlName="autor"
+                              optionLabel="nombre"
+                              placeholder="Autor">
+            </p-dropdown>
+          </div>
+          <div>
+            <label for="edicion">Edicion:</label>
+            <p-dropdown [options]="ediciones"
+                              formControlName="edicion"
+                              optionLabel="nombre"
+                              placeholder="Edicion">
+            </p-dropdown>
+          </div>
+
+          <div>
+            <label for="formato">Formato:</label>
+            <p-dropdown [options]="formatos"
+                              formControlName="formato"
+                              optionLabel="nombre"
+                              placeholder="Formato">
+            </p-dropdown>
+          </div>
+
+          <div>
+            <label for="precio">Precio:</label>
+            <input id="precio" formControlName="precio" type="number" />
+          </div>
+
+          <div>
+            <label for="ISBN">ISBN:</label>
+            <input id="ISBN" formControlName="ISBN" />
+          </div>
+
+          <div>
+            <label for="ISBN">imagen:</label>
+            <input id="ISBN" formControlName="imgName" />
+          </div>
+
+          <div>
+            <label for="cantidad">Cantidad:</label>
+            <input id="cantidad" formControlName="cantidad" type="number" />
+          </div>
+
+          <button type="submit">Guardar</button>
+        </form>
+      </div>
+    </p-dialog>
+
+    <p-dialog [(visible)]="displayDialog" [modal]="true" [closable]="true" [style]="{width: '40%', height: '100%'}" (onHide)="closeDialog()">
+      <div *ngIf="selectedLibro" style="display: flex; align-items: flex-start;">
+        <div *ngIf="!selectedLibro.imgName">
+          <img [src]="selectedLibro.imgName ? '/assets/' + selectedLibro.imgName : '/assets/' + selectedLibro.imgName" alt="Portada del Libro" style="width: 50%; border-radius: 8px;margin : 5px 5px 5px;"/>
+        </div>
+        <img *ngIf="selectedLibro.imgName" [src]="selectedLibro.imgName.startsWith('http') ? selectedLibro.imgName : '/assets/' + selectedLibro.imgName" alt="Portada del Libro" style="width: 50%; border-radius: 8px; margin: 5px 5px 5px;" />
+        <div style="margin-left: 20px; width: 40%;">
+          <ul style="list-style-type: none; padding: 0;">
+            <li><strong>Titulo:</strong>{{selectedLibro?.nombre}}</li>
+            <li><strong>Autor:</strong> {{ selectedLibro?.autor?.nombre }}</li>
+            <li><strong>Edicion:</strong> {{ selectedLibro?.edicion.nombre }}</li>
+            <li><strong>Formato:</strong> {{ selectedLibro?.formato.nombre | uppercase }}</li>
+            <li><strong>Precio:</strong> {{ selectedLibro?.precio | currency:'EUR' }}</li>
+            <li><strong>ISBN:</strong> {{ selectedLibro?.ISBN }}</li>
+            <li><strong>Cantidad:</strong> {{ selectedLibro?.cantidad }}</li>
+          </ul>
+          <p>{{ selectedLibro.descripcion }}</p>
+        </div>
+      </div>
+    </p-dialog>
+
+
+    <p-dialog [(visible)]="displayAdd" [modal]="true" [closable]="true" [style]="{width: '50%', height: '100%'}" (onHide)="closeDialog()">
+      <div>
+        <form [formGroup]="libroFormAdd" (ngSubmit)="addLibro(auxLibroAdd)">
+          <div>
+            <label for="nombre">Nombre:</label>
+            <input id="nombre" formControlName="nombre" />
+          </div>
+
+          <div>
+            <label for="autor">autor:</label>
+            <p-dropdown [options]="autores"
+                              formControlName="autor"
+                              optionLabel="nombre"
+                              placeholder="Autor">
+            </p-dropdown>
+          </div>
+          <div>
+            <label for="edicion">Edicion:</label>
+            <p-dropdown [options]="ediciones"
+                              formControlName="edicion"
+                              optionLabel="nombre"
+                              placeholder="Edicion">
+            </p-dropdown>
+          </div>
+
+          <div>
+            <label for="formato">Formato:</label>
+            <p-dropdown [options]="formatos"
+                              formControlName="formato"
+                              optionLabel="nombre"
+                              placeholder="Formato">
+            </p-dropdown>
+          </div>
+
+          <div>
+            <label for="precio">Precio:</label>
+            <input id="precio" formControlName="precio" type="number" />
+          </div>
+
+          <div>
+            <label for="ISBN">ISBN:</label>
+            <input id="ISBN" formControlName="ISBN" />
+          </div>
+
+          <div>
+            <label for="ISBN">imagen:</label>
+            <input id="ISBN" formControlName="imgName" />
+          </div>
+
+          <div>
+            <label for="cantidad">Cantidad:</label>
+            <input id="cantidad" formControlName="cantidad" type="number" />
+          </div>
+
+          <button type="submit">Guardar</button>
+        </form>
+      </div>
+    </p-dialog>
+  </div>
+<div>
+  <img [src]="'/assets/icono-cruz.png'" alt="Icono de edición" class="boton-add" (click)="mostrarLibro()"/>
 </div>
+
+<p-dialog header="Confirmación" [(visible)]="displayDelete" [modal]="true" [closable]="false" [styleClass]="'dialogo-eliminacion'">
+  <p>¿Deseas borrar el libro?</p>
+  <div class="dialogo-botones">
+    <button pButton type="button" label="Sí" icon="pi pi-check" (click)="deleteLibro(libroselectedDelete)">SI</button>
+    <button pButton type="button" label="No" icon="pi pi-times" (click)="displayDelete=false">NO</button>
+  </div>
+</p-dialog>
+

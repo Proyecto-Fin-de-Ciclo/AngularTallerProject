@@ -1,6 +1,104 @@
-<div class="animate__animated animate__lightSpeedInRight animate__slow">
-<app-barra-cierre></app-barra-cierre>
-<div class="container">
-  <h1>Temas</h1>
+<div class="animate__animated animate__pulse animate__slow">
+  <app-barra-cierre></app-barra-cierre>
+  <div class="container">
+    <div *ngFor="let tema of temas" class="card_v" >
+      <div (click)="showTemaDetails(tema)">
+      <p-card>
+        <ng-template pTemplate="header">
+          <img [src]="'/assets/tema/' + tema.imgName" class="img-autores">
+          <span style="font-weight: bold; font-size: 0.9em">{{ tema.nombre }}</span>
+        </ng-template>
+      </p-card>
+    </div>
+    <div class = "botones-libro">
+      <button class="boton-editar" (click)="mostrarCamposTema(tema)">
+        <img [src]="'/assets/editar.png'" alt="Icono de edición" class="boton-editar"/>
+      </button>
+      <button class="boton-eliminar" (click)="deleteConfirm(tema)">
+        <img [src]="'/assets/delete.png'" alt="Icono de eliminación" class="boton-eliminar"/>
+      </button>
+  </div>
+  </div>
 </div>
+
+<p-dialog [(visible)]="displayDialog" [modal]="true" [closable]="true" [style]="{width: '60vw'}">
+  <div *ngIf="selectedTema" style="display: flex; align-items: flex-start;">
+    <div style="flex: 1;">
+      <img [src]="'/assets/tema/' + selectedTema.imgName" alt="tema" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px;margin:0px 10px 10px;"/>
+    </div>
+    <div style="margin-left: 20px; flex: 2;">
+      <ul style="list-style-type: none; padding: 0;">
+        <li><strong>Titulo:</strong>{{selectedTema.nombre}}</li>
+      </ul>
+      <p>{{ selectedTema.descripcion }}</p>
+    </div>
+  </div>
+</p-dialog>
+
+<p-dialog [(visible)]="displayModify" [modal]="true" [closable]="true" [style]="{width: '50%', height: '100%'}" (onHide)="closeDialog()">
+  <div *ngIf="selectedTema" class="libro-form">
+    <form [formGroup]="temaForm" (ngSubmit)="modificarTema(selectedTema)">
+      <div>
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" formControlName="nombre" />
+      </div>
+
+      <div>
+        <label for="imgName">imagen:</label>
+        <input id="imgName" formControlName="imgName"/>
+      </div>
+
+      <div>
+        <label for="descripcion">Descripcion:</label>
+        <input id="descripcion" formControlName="descripcion" />
+      </div>
+
+      <button type="submit">Guardar</button>
+    </form>
+  </div>
+</p-dialog>
+
+<p-dialog [(visible)]="displayAdd" [modal]="true" [closable]="true" [style]="{width: '50%', height: '100%'}" (onHide)="closeDialog()">
+  <div>
+      <form [formGroup]="temaFormAdd" (ngSubmit)="addTema(selectedTema)">
+        <div>
+          <label for="nombre">Nombre:</label>
+          <input id="nombre" formControlName="nombre" />
+        </div>
+
+        <div>
+          <label for="imgName">imagen:</label>
+          <input id="imgName" formControlName="imgName"/>
+        </div>
+
+        <div>
+          <label for="descripcion">Descripcion:</label>
+          <input id="descripcion" formControlName="descripcion" />
+        </div>
+
+        <button type="submit">Guardar</button>
+      </form>
+  </div>
+</p-dialog>
+<div>
+<img [src]="'/assets/icono-cruz.png'" alt="Icono de edición" class="boton-add" (click)="mostrarCamposTemaAdd()"/>
+</div>
+
+<p-dialog header="Confirmación" [(visible)]="displayDelete" [modal]="true" [closable]="false" [styleClass]="'dialogo-eliminacion'">
+  <p>¿Deseas borrar el autor?</p>
+  <div class="dialogo-botones">
+    <button pButton type="button" label="Sí" icon="pi pi-check" (click)="deleteTema(temaSelectedDelete)">SI</button>
+    <button pButton type="button" label="No" icon="pi pi-times" (click)="displayDelete=false">NO</button>
+  </div>
+</p-dialog>
+
+<p-dialog header="Error" [(visible)]="displayError" [modal]="true" [closable]="true" [styleClass]="'dialogo-error'">
+  <p>{{ errorMessage }}</p>
+  <div class="dialogo-botones">
+    <button pButton type="button" label="Cerrar" icon="pi pi-times" (click)="displayError=false">aceptar</button>
+  </div>
+</p-dialog>
+
+
+
 

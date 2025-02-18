@@ -10,6 +10,10 @@ import { RouterModule } from '@angular/router';
 import { PagesModule } from './pages/pages.module';
 import { AppRoutingModule } from './app-routing.module';
 import { BarraCierreComponent } from './components/barra-cierre/barra-cierre.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
 import {
   HttpClient,
   HttpClientModule,
@@ -23,6 +27,10 @@ import {
     RouterModule,
     PagesModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    DialogModule,
+    ButtonModule,
+    CardModule,
     HttpClientModule,
     BarraCierreComponent, // Agregar la barra de cierre al módulo principal
   ],

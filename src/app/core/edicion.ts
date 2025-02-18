@@ -7,7 +7,4 @@ export class Edicion {
         this.nombre = nombre;
     }
 
-    toString(): string {
-        return this.nombre;
-    }
 }
