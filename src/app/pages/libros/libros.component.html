@@ -2,4 +2,24 @@
 <app-barra-cierre></app-barra-cierre>
 <div class="container">
   <h1>Libros</h1>
+  <div *ngFor="let libro of libros" class="card_v">
+    <p-card>
+      <ng-template pTemplate="header">
+        <img src= {{libro.imgName}}/>
+        <span style="font-weight: bold">
+          {{libro.nombre}}
+        </span>
+      </ng-template>
+      <p>Autor: {{libro.autor.nombre}}</p>
+      <p>Edicion: {{libro.edicion.nombre}}</p>
+      <p>Formato: {{libro.formato.nombre|uppercase}}</p>
+      <p>Precio: {{libro.precio|currency:"€"}}</p>
+      <p>Isbn: {{libro.ISBN}}</p>
+      <ng-template pTemplate="footer">
+        Cantidad: {{libro.cantidad}}
+      </ng-template>
+    </p-card>
+    {{libro.nombre}}
+  </div>
+  </div>
 </div>

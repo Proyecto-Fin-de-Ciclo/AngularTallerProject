@@ -1,4 +1,4 @@
-import { Libro } from '../../core/libro';
+import { User } from '../../core/user';
 import { LibrosService } from './../../services/libros.service';
 import { Component,OnInit } from '@angular/core';
 
@@ -6,8 +6,8 @@ import { Component,OnInit } from '@angular/core';
   selector: 'app-libros',
   standalone: false,
 
-  templateUrl: './libros.component.html',
-  styleUrl: './libros.component.css'
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css'
 })
 export class LibrosComponent implements OnInit {
 libros:Libro[]=[];

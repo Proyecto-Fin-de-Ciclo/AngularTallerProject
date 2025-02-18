@@ -1,6 +1,33 @@
 .container{
   width: 100%;
   min-height: 75vh;
-  background-color: aliceblue;
+  max-height: 75vh;
   border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: auto;
+  background-color: aliceblue;
+  border-end-end-radius: 4px;
+  border-end-start-radius: 4px;
+}
+
+
+.card_v{
+  width: 15%;
+  height: 100px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.position__img{
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+.libro__img{
+  width: 20%;
+  height: 50%;
+  cursor: pointer;
 }

@@ -7,6 +7,7 @@ import { AutorComponent } from './autor/autor.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from "../shared/shared.module";
 import { ComponentsComponent } from '../components/components.component';
+import{CardModule} from 'primeng/card';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ComponentsComponent } from '../components/components.component';
     CommonModule,
     RouterModule,
     SharedModule,
-    ComponentsComponent
+    ComponentsComponent,
+    CardModule
 ]
 })
 export class PagesModule { }
