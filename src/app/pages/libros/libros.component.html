@@ -18,7 +18,7 @@
         </ng-template>
         </p-card>
       </div>
-      <div class = "botones-libro">
+      <div class = "botones-libro" *ngIf="admin">
         <button class="boton-editar" (click)="mostrarCamposLibro(libro)">
           <img [src]="'/assets/editar.png'" alt="Icono de edición" class="boton-editar"/>
         </button>
@@ -26,6 +26,11 @@
           <img [src]="'/assets/delete.png'" alt="Icono de eliminación" class="boton-eliminar"/>
         </button>
     </div>
+    <div class = "botones-libro" *ngIf="member">
+      <button class="boton-editar" (click)="buyLibro(libro)">
+        <img [src]="'/assets/carrito.png'" alt="Icono de edición" class="boton-editar"/>
+      </button>
+  </div>
   </div>
   </div>
 
@@ -98,8 +103,8 @@
           <ul style="list-style-type: none; padding: 0;">
             <li><strong>Titulo:</strong>{{selectedLibro?.nombre}}</li>
             <li><strong>Autor:</strong> {{ selectedLibro?.autor?.nombre }}</li>
-            <li><strong>Edicion:</strong> {{ selectedLibro?.edicion.nombre }}</li>
-            <li><strong>Formato:</strong> {{ selectedLibro?.formato.nombre | uppercase }}</li>
+            <li><strong>Edicion:</strong> {{ selectedLibro?.edicion?.nombre }}</li>
+            <li><strong>Formato:</strong> {{ selectedLibro?.formato?.nombre | uppercase }}</li>
             <li><strong>Precio:</strong> {{ selectedLibro?.precio | currency:'EUR' }}</li>
             <li><strong>ISBN:</strong> {{ selectedLibro?.ISBN }}</li>
             <li><strong>Cantidad:</strong> {{ selectedLibro?.cantidad }}</li>
@@ -169,7 +174,7 @@
       </div>
     </p-dialog>
   </div>
-<div>
+<div *ngIf="admin">
   <img [src]="'/assets/icono-cruz.png'" alt="Icono de edición" class="boton-add" (click)="mostrarLibro()"/>
 </div>
 

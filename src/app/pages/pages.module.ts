@@ -12,6 +12,9 @@ import { DialogModule } from 'primeng/dialog';
 import { DataViewModule } from 'primeng/dataview';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
+import { LoginComponent } from '../login/login.component';
+import { LoginUserComponent } from './login-user/login-user.component';
+import { CestaComponent } from '../cesta/cesta.component';
 
 
 @NgModule({
@@ -20,19 +23,23 @@ import { DropdownModule } from 'primeng/dropdown';
     LibrosComponent,
     TemaComponent,
     AutorComponent,
+    LoginUserComponent,
+
   ],
   exports: [],
   imports: [
     CommonModule,
+    LoginComponent,
     RouterModule,
     SharedModule,
     ComponentsComponent,
     CardModule,
     DialogModule,
+    CestaComponent,
     DropdownModule,
     DataViewModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    LoginComponent
 ]
 })
 export class PagesModule { }

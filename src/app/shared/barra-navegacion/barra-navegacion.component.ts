@@ -35,6 +35,7 @@ export class BarraNavegacionComponent implements OnInit {
         command:()=>{ this.router.navigateByUrl('main/temas') }
       },
 
+
     ];
 }
 }

@@ -1,0 +1,36 @@
+.custom-breadcrumb {
+  width: 30%; /* Ajusta el ancho del breadcrumb */
+  margin: 0 auto; /* Centra el breadcrumb */
+  padding: 5px 5px; /* Añade padding para espacio interno */
+  border-radius: 8px; /* Bordes redondeados */
+  background-color: #f8f9fa62; /* Color de fondo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  font-size: 16px; /* Tamaño de la fuente */
+  font-family: 'Arial', sans-serif; /* Familia de la fuente */
+  display: flex; /* Flexbox para alinear los elementos */
+  align-items: center; /* Alinear verticalmente los elementos */
+}
+
+.custom-breadcrumb .ui-breadcrumb {
+  background-color: transparent; /* Fondo transparente para los items */
+}
+
+.custom-breadcrumb .ui-breadcrumb .ui-breadcrumb-item {
+  color: #007bff; /* Color del texto */
+  padding: 5px 10px; /* Añade padding a los items */
+}
+
+.custom-breadcrumb .ui-breadcrumb .ui-breadcrumb-item a {
+  text-decoration: none; /* Quitar subrayado de los enlaces */
+  color: #007bff; /* Color de los enlaces */
+  transition: color 0.2s; /* Transición para el color */
+}
+
+.custom-breadcrumb .ui-breadcrumb .ui-breadcrumb-item a:hover {
+  color: #0056b3; /* Color al pasar el mouse */
+}
+
+.custom-breadcrumb .ui-breadcrumb .ui-breadcrumb-chevron {
+  color: #6c757d; /* Color del separador */
+  margin: 0 5px; /* Espaciado alrededor del separador */
+}

@@ -15,6 +15,9 @@ export class UserService {
   public getUser(){
     return this.httpClient.get<User[]>(`${this.baseURL}/api/user`, {headers: this.options});
   }
+  public getUserById(id:number){
+    return this.httpClient.get<User>(`${this.baseURL}/api/user/${id}`, {headers: this.options});
+  }
   public putUser(user:User){
     return this.httpClient.put(`${this.baseURL}/api/user`, user, {headers: this.options});
   }

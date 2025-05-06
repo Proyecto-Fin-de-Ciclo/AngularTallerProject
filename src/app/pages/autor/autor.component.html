@@ -14,7 +14,7 @@
           </ng-template>
         </p-card>
       </div>
-      <div class = "botones-libro">
+      <div *ngIf="admin" class = "botones-libro">
         <button class="boton-editar" (click)="mostrarCamposAutor(autor)">
           <img [src]="'/assets/editar.png'" alt="Icono de edición" class="boton-editar"/>
         </button>
@@ -87,7 +87,7 @@
       </form>
   </div>
 </p-dialog>
-<div>
+<div *ngIf="admin">
 <img [src]="'/assets/icono-cruz.png'" alt="Icono de edición" class="boton-add" (click)="mostrarCamposAutorAdd()"/>
 </div>
 
@@ -102,7 +102,7 @@
 <p-dialog header="Error" [(visible)]="displayError" [modal]="true" [closable]="true" [styleClass]="'dialogo-error'">
   <p>{{ errorMessage }}</p>
   <div class="dialogo-botones">
-    <button pButton type="button" label="Cerrar" icon="pi pi-times" (click)="displayError=false"></button>
+    <button pButton type="button" label="Cerrar" icon="pi pi-times" (click)="displayError=false">OK</button>
   </div>
 </p-dialog>
 

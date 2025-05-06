@@ -6,6 +6,7 @@ import { BarraNavegacionComponent } from './barra-navegacion/barra-navegacion.co
 import { ButtonModule } from 'primeng/button';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {DockModule} from 'primeng/dock';
+import { LoginComponent } from "../login/login.component";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {DockModule} from 'primeng/dock';
     ButtonModule,
     BreadcrumbModule,
     DockModule,
-  ],
+    LoginComponent
+],
   exports: [
     BreadCrumbComponent,
     BarraNavegacionComponent,

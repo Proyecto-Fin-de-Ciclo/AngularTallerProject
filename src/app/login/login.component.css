@@ -1,0 +1,353 @@
+.login-container {
+  position: absolute;
+  top: 10px;  /* Espaciado desde arriba */
+  right: 5px; /* Espaciado desde la derecha */
+  display: flex;
+  gap: 10px; /* Espaciado entre botones */
+  align-items: center;
+  z-index: 1000; /* Asegurar que los botones estén por encima */
+}
+
+/* Botones estilizados */
+.login-button {
+  background-color: #6691be81;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos específicos para el diálogo de PrimeNG */
+p-dialog {
+  display: flow-root;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  background-color: transparent !important; /* Asegúrate de que el fondo del diálogo sea transparente */
+  top: 800% !important; /* Centrar verticalmente */
+  transform: translateY(900%) !important; /* Asegurarse de que esté centrado */
+}
+
+.p-dialog .p-dialog-header {
+  background: none !important; /* Hacer la cabecera transparente */
+  border: none !important; /* Eliminar el borde */
+  padding: 0 !important; /* Eliminar el padding */
+}
+
+.p-dialog .p-dialog-header .p-dialog-title {
+  background: none !important; /* Hacer el título transparente */
+  color: white !important; /* Asegúrate de que el texto sea visible */
+}
+
+.p-dialog .p-dialog-header .p-dialog-header-icons .p-button {
+  background: none !important; /* Hacer el fondo del botón transparente */
+  border: none !important; /* Eliminar el borde del botón */
+}
+
+/* Ocultar la barra de desplazamiento */
+.p-dialog .p-dialog-content {
+  overflow: hidden !important;
+}
+
+/* Formulario de inicio de sesión */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 0.4em;
+  background-color: #17171700;
+  border-radius: 25px;
+  transition: 0.4s ease-in-out;
+}
+
+.card {
+  background-image: linear-gradient(163deg, #bcc4c060 0%, #4a49514b 100%);
+  border-radius: 22px;
+  transition: all 0.3s;
+}
+.card3 {
+  background-image: linear-gradient(163deg, #bcc4c060 0%, #4a49514b 100%);
+  border-radius: 22px;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+.card4 {
+  background-image: linear-gradient(163deg, #652200c9 0%, #ffffffa5 100%);
+  border-radius: 22px;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+.card5 {
+  background-image: linear-gradient(163deg, #652200 0%, #ffffff 100%);
+  border-radius: 22px;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+
+.card2 {
+  border-radius: 0;
+  transition: all 0.2s;
+}
+.cardRegister2 {
+  border-radius: 0;
+  transition: all 0.2s;
+}
+
+.card2:hover {
+  transform: scale(0.98);
+  border-radius: 20px;
+}
+.card3:hover {
+  transform: scale(0.98);
+  border-radius: 20px;
+}
+.card4:hover {
+  transform: scale(0.98);
+  border-radius: 20px;
+}
+.card5:hover {
+  transform: scale(0.98);
+  border-radius: 20px;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 30px 1px rgb(255, 255, 255);
+}
+.cardRegister:hover {
+  box-shadow: 0px 0px 30px 1px rgb(255, 255, 255);
+}
+
+#heading {
+  text-align: center;
+  margin: 2em;
+  color: rgb(255, 255, 255);
+  font-size: 1.2em;
+  background: transparent; /* Asegúrate de que el fondo del encabezado sea transparente */
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border-radius: 25px;
+  padding: 0.6em;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #ffe3e399;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+
+.input-icon {
+  height: 1.3em;
+  width: 1.3em;
+  fill: white;
+}
+
+.input-field {
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: #fffcfc;
+}
+
+.form .btn {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 2.5em;
+}
+
+.button1 {
+  padding: 0.5em;
+  padding-left: 3.3em;
+  padding-right: 3.3em;
+  border-radius: 5px;
+  margin-right: 0.5em;
+  border: none;
+  outline: none;
+  transition: 0.4s ease-in-out;
+  background-color: #4b4b4b;
+  color: white;
+}
+
+.button1:hover {
+  background-color: black;
+  color: white;
+}
+
+.button2 {
+  padding: 0.5em;
+  padding-left: 2.3em;
+  padding-right: 2.3em;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  transition: 0.4s ease-in-out;
+  background-color: #4b4b4b;
+  color: white;
+}
+
+.button2:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Button */
+.add-to-cart-button {
+  background-color: #6691be81;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.imagenCesta {
+  width: 20px; /* Ajusta el tamaño del icono */
+  height: auto;
+}
+
+/* Efectos del botón */
+.add-to-cart-button:hover {
+  background-color: #028000;
+  transform: scale(1.05);
+}
+
+.add-to-cart-button:active {
+  background-color: #028000;
+  transform: scale(0.95);
+}
+
+.cesta{
+  width: 10%;
+}
+
+.book-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+
+.book-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  background: #f9f9f9;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.book-item:hover {
+  transform: scale(1.02);
+}
+
+.book-image {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.book-info {
+  flex: 1;
+}
+
+.book-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.book-info p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.quantity-controls button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.quantity-controls button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.quantity-controls button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.quantity-controls span {
+  font-size: 1.1rem;
+  font-weight: bold;
+  min-width: 30px;
+  text-align: center;
+}
+
+.cart-summary {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.cart-summary h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.cart-summary button {
+  background-color: #28a745;
+  padding: 10px;
+  font-size: 1.1rem;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cart-summary button:hover {
+  background-color: #218838;
+}
+.form-buttons {
+  display: flex;
+  justify-content: center; /* Centra los botones horizontalmente */
+  gap: 10px; /* Espacio entre los botones */
+  margin-top: 10px;
+}
+

@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import {
   BrowserModule,
@@ -14,11 +15,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { LoginAuthService } from './services/loginAuth.service';
+
 import {
   HttpClient,
   HttpClientModule,
   provideHttpClient,
 } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { CestaComponent } from './cesta/cesta.component';
 
 @NgModule({
   declarations: [AppComponent, PagesNotFoundComponent],
@@ -29,12 +34,14 @@ import {
     AppRoutingModule,
     BrowserAnimationsModule,
     DialogModule,
+    LoginComponent,
     ButtonModule,
     CardModule,
     HttpClientModule,
-    BarraCierreComponent, // Agregar la barra de cierre al módulo principal
-  ],
-  providers: [provideClientHydration(withEventReplay()), provideHttpClient()],
+    BarraCierreComponent,
+    CestaComponent
+],
+  providers: [provideClientHydration(withEventReplay()), provideHttpClient(),LoginAuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -4,6 +4,7 @@ import { Tema } from '../../core/tema';
 import { DataViewModule } from 'primeng/dataview';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
+import { LoginAuthService } from '../../services/loginAuth.service';
 
 @Component({
   selector: 'app-autor',
@@ -20,6 +21,8 @@ export class TemaComponent implements OnInit {
   errorMessage: string = '';
   temaSelectedDelete!:Tema;
     temaSeleccionado!:Tema;
+    user: any;
+    admin=false;
     temaAuxAdd!:Tema;
     temaForm!: FormGroup;
     temaFormAdd!: FormGroup;
@@ -28,9 +31,13 @@ export class TemaComponent implements OnInit {
     displayAdd: boolean = false;
     displayError: boolean = false;
     displayDelete: boolean = false;
-    constructor(private temaService:TemaService, private fb: FormBuilder) { }
+    constructor(private temaService:TemaService, private fb: FormBuilder,private loginAuthService:LoginAuthService) { }
 
     ngOnInit(): void {
+      this.user = this.loginAuthService.getUser();
+      if(this.user.rol=="admin"){
+        this.admin=true;
+      }
       this.temaService.getTema().subscribe((tema:Tema[]) => {
         this.temas=tema;
         console.log(this.temas);

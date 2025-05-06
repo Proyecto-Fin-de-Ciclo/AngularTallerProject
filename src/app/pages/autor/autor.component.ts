@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataViewModule } from 'primeng/dataview';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { LoginAuthService } from '../../services/loginAuth.service';
 
 @Component({
   selector: 'app-autor',
@@ -17,6 +18,8 @@ export class AutorComponent implements OnInit {
   autores:Autor[]=[];
   selectedAutor: any;
   errorMessage: string = '';
+  user: any;
+  admin=false;
   DataViewModule: any;
   autorSeleccionado!:Autor;
   autorAuxAdd!:Autor;
@@ -28,9 +31,13 @@ export class AutorComponent implements OnInit {
   displayAdd: boolean = false;
   displayError: boolean = false;
   displayDelete: boolean = false;
-    constructor(private autorService:AutorService,private fb: FormBuilder) { }
+    constructor(private autorService:AutorService,private fb: FormBuilder,private loginAuthService:LoginAuthService) { }
 
     ngOnInit(): void {
+      this.user = this.loginAuthService.getUser();
+      if(this.user.rol=="admin"){
+        this.admin=true;
+      }
       this.autorService.getAutores().subscribe((autor:Autor[]) => {
         this.autores=autor;
         console.log(this.autores);
